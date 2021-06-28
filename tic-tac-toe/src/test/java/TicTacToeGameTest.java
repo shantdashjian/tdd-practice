@@ -21,17 +21,20 @@ class TicTacToeGameTest {
     }
 
     @Test
-    void return_1_when_sending_a_board_with_spot_0_occupied() {
-        assertEquals(1, game.solveTTT(Arrays.asList("O", "", "", "", "", "", "", "", "")));
+    void return_index_between_1_and_8_when_sending_a_board_with_spot_0_occupied() {
+        int result = game.solveTTT(Arrays.asList("O", "", "", "", "", "", "", "", ""));
+        assertTrue(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8).contains(result));
     }
 
     @Test
-    void return_2_when_sending_a_board_with_spot_0_and_1_occupied() {
-        assertEquals(2, game.solveTTT(Arrays.asList("O", "X", "", "", "", "", "", "", "")));
+    void return_index_between_2_and_8_when_sending_a_board_with_spot_0_and_1_occupied() {
+        int result = game.solveTTT(Arrays.asList("O", "X", "", "", "", "", "", "", ""));
+        assertTrue(Arrays.asList(2, 3, 4, 5, 6, 7, 8).contains(result));
     }
 
     @Test
-    void return_3_when_sending_a_board_with_spot_0_1_and_2_occupied() {
-        assertEquals(3, game.solveTTT(Arrays.asList("O", "X", "O", "", "", "", "", "", "")));
+    void return_index_between_3_and_8_when_sending_a_board_with_spot_0_1_and_2_occupied() {
+        int result = game.solveTTT(Arrays.asList("O", "X", "O", "", "", "", "", "", ""));
+        assertTrue(Arrays.asList(3, 4, 5, 6, 7, 8).contains(result));
     }
 }
