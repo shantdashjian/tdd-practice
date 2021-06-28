@@ -33,4 +33,10 @@ class PrimeFactorsSolverTest {
         assertEquals(expected, solver.primeFactors(3));
     }
 
+    @Test
+    void return_a_list_of_2_2_when_factoring_4() {
+        List<Integer> expected = new ArrayList<>(Arrays.asList(2, 2));
+        assertEquals(expected, solver.primeFactors(4));
+    }
+
 }
