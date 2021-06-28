@@ -54,4 +54,10 @@ class BowlingTest {
         assertEquals("I I I I\n I   I \n  I I  \n   I   ", bowling.bowlingPins(pinsToRemove));
     }
 
+    @Test
+    void return_field_with_pin_6_removed_when_sending_an_array_of_6() {
+        int[] pinsToRemove = {6};
+        assertEquals("I I I I\n I I   \n  I I  \n   I   ", bowling.bowlingPins(pinsToRemove));
+    }
+
 }
