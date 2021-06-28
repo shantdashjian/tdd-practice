@@ -9,10 +9,16 @@ public class Bowling {
 
         String field = "";
 
-        if (list.contains(4)) {
-            field += "I I I I\n   ";
+        if (list.contains(7)) {
+            field += "  I I I\n ";
         } else {
-            field += "I I I I\n I ";
+            field += "I I I I\n ";
+        }
+
+        if (list.contains(4)) {
+            field += "  ";
+        } else {
+            field += "I ";
         }
 
         if (list.contains(5)) {
