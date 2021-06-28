@@ -3,6 +3,8 @@ import java.util.List;
 public class TicTacToeGame {
 
     public int solveTTT(List<String> board) {
+        throwExceptionIfBoardIsFull(board);
+
         if (thereIsAWinningMoveIn(board,0, 1, 2)) {
             return getWinningMoveIn(board, 0, 1, 2);
         }
@@ -38,6 +40,15 @@ public class TicTacToeGame {
             index++;
         }
         return index;
+    }
+
+    private void throwExceptionIfBoardIsFull(List<String> board) {
+        if (board.stream()
+                .filter(item -> item != null && !item.isEmpty())
+                .count()
+                 == 9) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private int getWinningMoveIn(List<String> board, int index0, int index1, int index2) {
