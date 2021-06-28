@@ -9,7 +9,7 @@ public class PrimeFactorsSolver {
             n = n / 2;
             factors.add(2);
         }
-        if (n == 2 || n == 3) {
+        if (n > 1) {
             factors.add(n);
         }
         return factors;
