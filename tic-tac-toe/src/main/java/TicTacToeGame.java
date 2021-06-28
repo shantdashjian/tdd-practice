@@ -3,8 +3,8 @@ import java.util.List;
 public class TicTacToeGame {
 
     public int solveTTT(List<String> board) {
-        if (board.get(0).equals("X") && board.get(1).equals("X") && board.get(2).equals("")) {
-            return 2;
+        if (thereIsAWinningMoveIn(board.get(0), board.get(1), board.get(2))) {
+            return getWinningMoveIn(board, 0, 1, 2);
         }
         if (thereIsAWinningMoveIn(board.get(3), board.get(4), board.get(5))) {
             return getWinningMoveIn(board, 3, 4, 5);
