@@ -13,6 +13,14 @@ public class RockPaperScissorsGame {
                 return "Player 2 won!";
             }
         }
+
+        if (set.containsAll(new HashSet<>(Arrays.asList("paper", "rock")))) {
+            if (player1.equals("paper")) {
+                return "Player 1 won!";
+            } else {
+                return "Player 2 won!";
+            }
+        }
         return "Draw!";
     }
 }
