@@ -11,4 +11,10 @@ class TicTacToeGameTest {
         TicTacToeGame game = new TicTacToeGame();
         assertEquals(0, game.solveTTT(Arrays.asList("", "", "", "", "", "", "", "", "")));
     }
+
+    @Test
+    void return_1_when_sending_a_board_with_spot_0_occupied() {
+        TicTacToeGame game = new TicTacToeGame();
+        assertEquals(1, game.solveTTT(Arrays.asList("O", "", "", "", "", "", "", "", "")));
+    }
 }
