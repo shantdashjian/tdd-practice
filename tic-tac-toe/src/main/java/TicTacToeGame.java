@@ -3,33 +3,33 @@ import java.util.List;
 public class TicTacToeGame {
 
     public int solveTTT(List<String> board) {
-        if (thereIsAWinningMoveIn(board.get(0), board.get(1), board.get(2))) {
+        if (thereIsAWinningMoveIn(board,0, 1, 2)) {
             return getWinningMoveIn(board, 0, 1, 2);
         }
-        if (thereIsAWinningMoveIn(board.get(3), board.get(4), board.get(5))) {
+        if (thereIsAWinningMoveIn(board, 3, 4, 5)) {
             return getWinningMoveIn(board, 3, 4, 5);
         }
-        if (thereIsAWinningMoveIn(board.get(6), board.get(7), board.get(8))) {
+        if (thereIsAWinningMoveIn(board, 6, 7, 8)) {
             return getWinningMoveIn(board, 6, 7, 8);
         }
 
-        if (thereIsAWinningMoveIn(board.get(0), board.get(3), board.get(6))) {
+        if (thereIsAWinningMoveIn(board, 0, 3, 6)) {
             return getWinningMoveIn(board, 0, 3, 6);
         }
 
-        if (thereIsAWinningMoveIn(board.get(1), board.get(4), board.get(7))) {
+        if (thereIsAWinningMoveIn(board, 1, 4, 7)) {
             return getWinningMoveIn(board, 1, 4, 7);
         }
 
-        if (thereIsAWinningMoveIn(board.get(2), board.get(5), board.get(8))) {
+        if (thereIsAWinningMoveIn(board, 2, 5, 8)) {
             return getWinningMoveIn(board, 2, 5, 8);
         }
 
-        if (thereIsAWinningMoveIn(board.get(0), board.get(4), board.get(8))) {
+        if (thereIsAWinningMoveIn(board, 0, 4, 8)) {
             return getWinningMoveIn(board, 0, 4, 8);
         }
 
-        if (thereIsAWinningMoveIn(board.get(2), board.get(4), board.get(6))) {
+        if (thereIsAWinningMoveIn(board, 2, 4, 6)) {
             return getWinningMoveIn(board, 2, 4, 6);
         }
 
@@ -50,9 +50,9 @@ public class TicTacToeGame {
         }
     }
 
-    public boolean thereIsAWinningMoveIn(String spot1, String spot2, String spot3) {
-        return (spot1.equals("X") && spot2.equals("X") && spot3.equals(""))
-                || (spot1.equals("X") && spot2.equals("") && spot3.equals("X"))
-                || (spot1.equals("") && spot2.equals("X") && spot3.equals("X"));
+    private boolean thereIsAWinningMoveIn(List<String> board, int index0, int index1, int index2) {
+        return (board.get(index0).equals("X") && board.get(index1).equals("X") && board.get(index2).equals(""))
+                || (board.get(index0).equals("X") && board.get(index1).equals("") && board.get(index2).equals("X"))
+                || (board.get(index0).equals("") && board.get(index1).equals("X") && board.get(index2).equals("X"));
     }
 }

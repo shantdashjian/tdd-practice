@@ -49,19 +49,4 @@ class TicTacToeGameTest {
         assertEquals(8, game.solveTTT(Arrays.asList("X", "", "", "", "X", "", "", "", "")));
         assertEquals(6, game.solveTTT(Arrays.asList("", "", "X", "", "X", "", "", "", "")));
     }
-
-    @Test
-    void return_true_when_asking_if_there_is_a_winning_move_for_X_X_empty() {
-        assertTrue(game.thereIsAWinningMoveIn("X", "X", ""));
-    }
-
-    @Test
-    void return_true_when_asking_if_there_is_a_winning_move_for_X_empty_X() {
-        assertTrue(game.thereIsAWinningMoveIn("X", "", "X"));
-    }
-
-    @Test
-    void return_true_when_asking_if_there_is_a_winning_move_for_empty_X_X() {
-        assertTrue(game.thereIsAWinningMoveIn("", "X", "X"));
-    }
 }
