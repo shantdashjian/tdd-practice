@@ -15,8 +15,9 @@ class TicTacToeGameTest {
     }
 
     @Test
-    void return_0_when_sending_an_empty_board() {
-        assertEquals(0, game.solveTTT(Arrays.asList("", "", "", "", "", "", "", "", "")));
+    void return_index_between_0_and_8_when_sending_an_empty_board() {
+        int result = game.solveTTT(Arrays.asList("", "", "", "", "", "", "", "", ""));
+        assertTrue(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8).contains(result));
     }
 
     @Test
