@@ -84,4 +84,10 @@ class BowlingTest {
         assertEquals("I I I  \n I I I \n  I I  \n   I   ", bowling.bowlingPins(pinsToRemove));
     }
 
+    @Test
+    void return_empty_field_with_all_pins_removed_when_sending_an_array_of_all_pins() {
+        int[] pinsToRemove = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        assertEquals("       \n       \n       \n       ", bowling.bowlingPins(pinsToRemove));
+    }
+
 }
