@@ -21,6 +21,12 @@ public class RockPaperScissorsGame {
                 return "Player 2 won!";
             }
         }
+
+        if (set.containsAll(new HashSet<>(Arrays.asList("scissors", "paper")))) {
+            if (player1.equals("scissors")) {
+                return "Player 1 won!";
+            }
+        }
         return "Draw!";
     }
 }
