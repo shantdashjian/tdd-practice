@@ -16,9 +16,15 @@ public class Bowling {
         }
 
         if (list.contains(8)) {
-            field += "  I I\n ";
+            field += "  ";
         } else {
-            field += "I I I\n ";
+            field += "I ";
+        }
+
+        if (list.contains(9)) {
+            field += "  I\n ";
+        } else {
+            field += "I I\n ";
         }
 
         if (list.contains(4)) {
