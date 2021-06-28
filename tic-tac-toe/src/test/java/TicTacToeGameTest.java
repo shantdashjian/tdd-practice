@@ -44,32 +44,16 @@ class TicTacToeGameTest {
     }
 
     @Test
-    void return_a_winning_index_at_5_when_sending_a_board_with_spots_0_and_1_with_O_and_3_and_4_with_X_and_2_and_5_are_empty() {
+    void return_winning_move_for_rows() {
         assertEquals(5, game.solveTTT(Arrays.asList("O", "O", "", "X", "X", "", "O", "X", "O")));
-    }
-
-    @Test
-    void return_a_winning_index_at_4_when_sending_a_board_with_spots_0_and_2_with_O_and_3_and_5_with_X_and_1_and_4_are_empty() {
         assertEquals(4, game.solveTTT(Arrays.asList("O", "", "O", "X", "", "X", "O", "X", "O")));
-    }
-
-    @Test
-    void return_a_winning_index_at_6_when_sending_a_board_with_spots_6_empty_and_spots_7_and_8_with_X() {
         assertEquals(6, game.solveTTT(Arrays.asList("O", "X", "O", "O", "O", "", "", "X", "X")));
     }
 
     @Test
-    void return_a_winning_index_at_3_when_sending_a_board_with_spot_3_empty_and_0_and_6_X() {
+    void return_winning_move_for_columns() {
         assertEquals(3, game.solveTTT(Arrays.asList("X", "O", "", "", "O", "", "X", "O", "X")));
-    }
-
-    @Test
-    void return_a_winning_index_at_7_when_sending_a_board_with_spot_7_empty_and_1_and_4_X() {
         assertEquals(7, game.solveTTT(Arrays.asList("", "X", "", "", "X", "", "O", "", "O")));
-    }
-
-    @Test
-    void return_a_winning_index_at_8_when_sending_a_board_with_spot_8_empty_and_2_and_5_X() {
         assertEquals(8, game.solveTTT(Arrays.asList("", "", "X", "", "", "X", "O", "O", "")));
     }
 
