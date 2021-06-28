@@ -4,7 +4,7 @@ public class RockPaperScissorsGame {
     private Map<String, String> map;
 
     public String play(String player1, String player2) {
-        if (player1.equals("")) {
+        if (player1.equals("") || player2.equals("")) {
             throw new IllegalArgumentException("Both players must play");
         }
 
