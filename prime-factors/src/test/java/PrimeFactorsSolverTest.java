@@ -88,4 +88,11 @@ class PrimeFactorsSolverTest {
         assertEquals(expected, solver.primeFactors(100));
     }
 
+    @Test
+    void return_an_empty_list_when_factoring_minus_1() {
+        List<Integer> expected = new ArrayList<>();
+        assertEquals(expected, solver.primeFactors(-1));
+    }
+
+
 }
