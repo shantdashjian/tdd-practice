@@ -15,6 +15,7 @@ class PrimeFactorsSolverTest {
     static void setup() {
         solver = new PrimeFactorsSolver();
     }
+
     @Test
     void return_an_empty_list_when_factoring_1() {
         List<Integer> expected = new ArrayList<>();
@@ -55,6 +56,12 @@ class PrimeFactorsSolverTest {
     void return_a_list_of_7_when_factoring_7() {
         List<Integer> expected = new ArrayList<>(Arrays.asList(7));
         assertEquals(expected, solver.primeFactors(7));
+    }
+
+    @Test
+    void return_a_list_of_2_2_2_when_factoring_8() {
+        List<Integer> expected = new ArrayList<>(Arrays.asList(2, 2, 2));
+        assertEquals(expected, solver.primeFactors(8));
     }
 
 }
