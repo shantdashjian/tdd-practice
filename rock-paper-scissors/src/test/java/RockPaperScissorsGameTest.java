@@ -52,6 +52,8 @@ class RockPaperScissorsGameTest {
     @Test
     void throws_exception_if_either_player_did_not_play() {
         assertThrows(IllegalArgumentException.class, () -> game.play("", "rock"));
+        assertThrows(IllegalArgumentException.class, () -> game.play(null, "rock"));
         assertThrows(IllegalArgumentException.class, () -> game.play("rock", ""));
+        assertThrows(IllegalArgumentException.class, () -> game.play("rock", null));
     }
 }
