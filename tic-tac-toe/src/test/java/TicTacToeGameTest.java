@@ -43,4 +43,10 @@ class TicTacToeGameTest {
         int result = game.solveTTT(Arrays.asList("X", "X", "", "O", "O", "X", "O", "X", "O"));
         assertEquals(2, result);
     }
+
+    @Test
+    void return_a_winning_index_at_5_when_sending_a_board_with_spots_0_and_1_with_O_and_3_and_4_with_X_and_2_and_5_are_empty() {
+        int result = game.solveTTT(Arrays.asList("O", "O", "", "X", "X", "", "O", "X", "O"));
+        assertEquals(5, result);
+    }
 }
