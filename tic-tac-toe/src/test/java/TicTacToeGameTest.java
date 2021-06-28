@@ -49,4 +49,11 @@ class TicTacToeGameTest {
         assertEquals(8, game.solveTTT(Arrays.asList("X", "", "", "", "X", "", "", "", "")));
         assertEquals(6, game.solveTTT(Arrays.asList("", "", "X", "", "X", "", "", "", "")));
     }
+
+    @Test
+    void throw_exception_when_passing_full_board() {
+        assertThrows(IllegalArgumentException.class, () -> game.solveTTT(Arrays.asList("X", "X", "O", "O", "X", "X",
+                "O", "O", "X")));
+
+    }
 }
