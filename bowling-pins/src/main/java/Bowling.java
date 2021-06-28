@@ -4,10 +4,18 @@ public class Bowling {
     public String bowlingPins(int[] pinsToRemove) {
         String field = "";
         if (Arrays.stream(pinsToRemove)
-            .anyMatch(item -> item == 2)) {
-            field += "I I I I\n I I I \n    ";
+                .anyMatch(item -> item == 4)) {
+            field += "I I I I\n   ";
         } else {
-            field += "I I I I\n I I I \n  I ";
+            field += "I I I I\n I ";
+        }
+
+        field += "I I \n  ";
+        if (Arrays.stream(pinsToRemove)
+            .anyMatch(item -> item == 2)) {
+            field += "  ";
+        } else {
+            field += "I ";
         }
         if (Arrays.stream(pinsToRemove)
                 .anyMatch(item -> item == 3)) {
