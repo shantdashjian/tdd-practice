@@ -76,4 +76,10 @@ class PrimeFactorsSolverTest {
         assertEquals(expected, solver.primeFactors(10));
     }
 
+    @Test
+    void return_a_list_of_13_when_factoring_13() {
+        List<Integer> expected = new ArrayList<>(Arrays.asList(13));
+        assertEquals(expected, solver.primeFactors(13));
+    }
+
 }
