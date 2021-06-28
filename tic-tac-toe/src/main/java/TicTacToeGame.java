@@ -9,6 +9,9 @@ public class TicTacToeGame {
         if (thereIsAWinningMoveIn(board.get(3), board.get(4), board.get(5))) {
             return getWinningMoveIn(board, 3, 4, 5);
         }
+        if (thereIsAWinningMoveIn(board.get(6), board.get(7), board.get(8))) {
+            return getWinningMoveIn(board, 6, 7, 8);
+        }
 
         int index = 0;
         while (!board.get(index).equals("")) {
