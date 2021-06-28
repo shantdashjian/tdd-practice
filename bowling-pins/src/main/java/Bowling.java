@@ -9,7 +9,12 @@ public class Bowling {
         } else {
             field += "I I I I\n I I I \n  I ";
         }
-        field += "I  \n   ";
+        if (Arrays.stream(pinsToRemove)
+                .anyMatch(item -> item == 3)) {
+            field += "   \n   ";
+        } else {
+            field += "I  \n   ";
+        }
         if (Arrays.stream(pinsToRemove)
                 .anyMatch(item -> item == 1)) {
             field += "    ";
