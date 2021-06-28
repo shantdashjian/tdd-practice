@@ -1,15 +1,22 @@
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Bowling {
     public String bowlingPins(int[] pinsToRemove) {
-        if (Arrays.equals(pinsToRemove, new int[]{1})) {
-            return "I I I I\n I I I \n  I I  \n       ";
+        String field = "";
+        if (Arrays.stream(pinsToRemove)
+            .anyMatch(item -> item == 2)) {
+            field += "I I I I\n I I I \n    ";
+        } else {
+            field += "I I I I\n I I I \n  I ";
+        }
+        field += "I  \n   ";
+        if (Arrays.stream(pinsToRemove)
+                .anyMatch(item -> item == 1)) {
+            field += "    ";
+        } else {
+            field += "I   ";
         }
 
-        if (Arrays.equals(pinsToRemove, new int[]{2})) {
-            return "I I I I\n I I I \n    I  \n   I   ";
-        }
-        return "I I I I\n I I I \n  I I  \n   I   ";
+        return field;
     }
 }
