@@ -48,4 +48,9 @@ class RockPaperScissorsGameTest {
     void return_player2_when_player1_is_paper_and_player2_is_scissors() {
         assertEquals("Player 2 won!", game.play("paper", "scissors"));
     }
+
+    @Test
+    void throws_exception_if_either_player_did_not_play() {
+        assertThrows(IllegalArgumentException.class, () -> game.play("", "rock"));
+    }
 }
