@@ -28,4 +28,9 @@ class TicTacToeGameTest {
     void return_2_when_sending_a_board_with_spot_0_and_1_occupied() {
         assertEquals(2, game.solveTTT(Arrays.asList("O", "X", "", "", "", "", "", "", "")));
     }
+
+    @Test
+    void return_3_when_sending_a_board_with_spot_0_1_and_2_occupied() {
+        assertEquals(3, game.solveTTT(Arrays.asList("O", "X", "O", "", "", "", "", "", "")));
+    }
 }
