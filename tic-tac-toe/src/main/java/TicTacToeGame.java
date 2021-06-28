@@ -47,7 +47,7 @@ public class TicTacToeGame {
                 .filter(item -> item != null && !item.isEmpty())
                 .count()
                  == 9) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Board is full!!");
         }
     }
 
