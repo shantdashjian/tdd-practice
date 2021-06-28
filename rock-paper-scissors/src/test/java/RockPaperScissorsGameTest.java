@@ -43,4 +43,9 @@ class RockPaperScissorsGameTest {
     void return_player1_when_player1_is_scissors_and_player2_is_paper() {
         assertEquals("Player 1 won!", game.play("scissors", "paper"));
     }
+
+    @Test
+    void return_player2_when_player1_is_paper_and_player2_is_scissors() {
+        assertEquals("Player 2 won!", game.play("paper", "scissors"));
+    }
 }
