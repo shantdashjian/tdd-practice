@@ -4,6 +4,10 @@ public class RockPaperScissorsGame {
     private Map<String, String> map;
 
     public String play(String player1, String player2) {
+        if (player1.equals("")) {
+            throw new IllegalArgumentException("Both players must play");
+        }
+
         storeDataFor(player1, player2);
 
         if (its("rock", "scissors")) {
