@@ -45,8 +45,9 @@ class TicTacToeGameTest {
     }
 
     @Test
-    void return_winning_move_for_diagonal() {
+    void return_winning_move_for_diagonals() {
         assertEquals(8, game.solveTTT(Arrays.asList("X", "", "", "", "X", "", "", "", "")));
+        assertEquals(6, game.solveTTT(Arrays.asList("", "", "X", "", "X", "", "", "", "")));
     }
 
     @Test
