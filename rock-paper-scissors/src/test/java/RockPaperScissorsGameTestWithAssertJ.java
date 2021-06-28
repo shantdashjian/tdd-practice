@@ -52,9 +52,9 @@ class RockPaperScissorsGameTestWithAssertJ {
 
     @Test
     void throws_exception_if_either_player_did_not_play() {
-        assertThatThrownBy(() -> game.play("", "rock")).isEqualTo(IllegalArgumentException.class);
-        assertThatThrownBy(() -> game.play(null, "rock")).isEqualTo(IllegalArgumentException.class);
-        assertThatThrownBy(() -> game.play("rock", "")).isEqualTo(IllegalArgumentException.class);
-        assertThatThrownBy(() -> game.play("rock", null)).isEqualTo(IllegalArgumentException.class);
+        assertThatThrownBy(() -> game.play("", "rock")).hasMessage("Both players must play");
+        assertThatThrownBy(() -> game.play(null, "rock")).hasMessage("Both players must play");
+        assertThatThrownBy(() -> game.play("rock", "")).hasMessage("Both players must play");
+        assertThatThrownBy(() -> game.play("rock", null)).hasMessage("Both players must play");
     }
 }
