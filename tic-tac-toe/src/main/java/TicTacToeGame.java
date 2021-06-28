@@ -10,6 +10,9 @@ public class TicTacToeGame {
             return 5;
         }
 
+        if (board.get(3).equals("X") && board.get(4).equals("") && board.get(5).equals("X")) {
+            return 4;
+        }
         int index = 0;
         while (!board.get(index).equals("")) {
             index++;
