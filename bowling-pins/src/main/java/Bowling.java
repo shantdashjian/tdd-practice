@@ -1,44 +1,43 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Bowling {
     public String bowlingPins(int[] pinsToRemove) {
+        List<Integer> list = new ArrayList<>();
+        for (int item : pinsToRemove) {
+            list.add(item);
+        }
+
         String field = "";
-        if (Arrays.stream(pinsToRemove)
-                .anyMatch(item -> item == 4)) {
+
+        if (list.contains(4)) {
             field += "I I I I\n   ";
         } else {
             field += "I I I I\n I ";
         }
 
-
-        if (Arrays.stream(pinsToRemove)
-                .anyMatch(item -> item == 5)) {
+        if (list.contains(5)) {
             field += "  ";
         } else {
             field += "I ";
         }
 
-        if (Arrays.stream(pinsToRemove)
-                .anyMatch(item -> item == 6)) {
+        if (list.contains(6)) {
             field += "  \n  ";
         } else {
             field += "I \n  ";
         }
 
-        if (Arrays.stream(pinsToRemove)
-            .anyMatch(item -> item == 2)) {
+        if (list.contains(2)) {
             field += "  ";
         } else {
             field += "I ";
         }
-        if (Arrays.stream(pinsToRemove)
-                .anyMatch(item -> item == 3)) {
+        if (list.contains(3)) {
             field += "   \n   ";
         } else {
             field += "I  \n   ";
         }
-        if (Arrays.stream(pinsToRemove)
-                .anyMatch(item -> item == 1)) {
+        if (list.contains(1)) {
             field += "    ";
         } else {
             field += "I   ";
