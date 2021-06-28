@@ -1,41 +1,34 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class RockPaperScissorsGame {
-    Set<String> set;
+    private Map<String, String> map;
 
 
     public String play(String player1, String player2) {
-        set = new HashSet<>(Arrays.asList(player1, player2));
+        map = new HashMap<>();
+        map.put(player1, "Player 1");
+        map.put(player2, "Player 2");
 
         if (its("rock", "scissors")) {
-            if (player1.equals("rock")) {
-                return "Player 1 won!";
-            } else {
-                return "Player 2 won!";
-            }
+            return playerWhoPlayed("rock") + " won!";
         }
 
-        if (set.containsAll(new HashSet<>(Arrays.asList("paper", "rock")))) {
-            if (player1.equals("paper")) {
-                return "Player 1 won!";
-            } else {
-                return "Player 2 won!";
-            }
+        if (its("paper", "rock")) {
+            return playerWhoPlayed("paper") + " won!";
         }
 
-        if (set.containsAll(new HashSet<>(Arrays.asList("scissors", "paper")))) {
-            if (player1.equals("scissors")) {
-                return "Player 1 won!";
-            } else {
-                return "Player 2 won!";
-            }
+        if (its("scissors", "paper")) {
+            return playerWhoPlayed("scissors") + " won!";
         }
+
         return "Draw!";
     }
 
+    private String playerWhoPlayed(String item) {
+        return map.get(item);
+    }
+
     private boolean its(String item1, String item2) {
-        return set.containsAll(new HashSet<>(Arrays.asList(item1, item2)));
+        return map.keySet().containsAll(new HashSet<>(Arrays.asList(item1, item2)));
     }
 }
