@@ -22,9 +22,15 @@ public class Bowling {
         }
 
         if (list.contains(9)) {
-            field += "  I\n ";
+            field += "  ";
         } else {
-            field += "I I\n ";
+            field += "I ";
+        }
+
+        if (list.contains(10)) {
+            field += " \n ";
+        } else {
+            field += "I\n ";
         }
 
         if (list.contains(4)) {
