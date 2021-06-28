@@ -18,6 +18,7 @@ public class TicTacToeGame {
     }
 
     public boolean thereIsAWinningMoveIn(String spot1, String spot2, String spot3) {
-        return spot1.equals("X") && spot2.equals("X") && spot3.equals("");
+        return (spot1.equals("X") && spot2.equals("X") && spot3.equals(""))
+                || (spot1.equals("X") && spot2.equals("") && spot3.equals("X"));
     }
 }
