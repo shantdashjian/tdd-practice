@@ -69,6 +69,11 @@ class TicTacToeGameTest {
     }
 
     @Test
+    void return_a_winning_index_at_8_when_sending_a_board_with_spot_8_empty_and_2_and_5_X() {
+        assertEquals(8, game.solveTTT(Arrays.asList("", "", "X", "", "", "X", "O", "O", "")));
+    }
+
+    @Test
     void return_true_when_asking_if_there_is_a_winning_move_for_X_X_empty() {
         assertTrue(game.thereIsAWinningMoveIn("X", "X", ""));
     }
