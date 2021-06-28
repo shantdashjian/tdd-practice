@@ -23,7 +23,7 @@ public class RockPaperScissorsGame {
     }
 
     private void checkBothPlayersPlayed(String player1, String player2) {
-        if (player1.equals("") || player2.equals("")) {
+        if (player1 == null || player1.equals("") || player2 == null || player2.equals("")) {
             throw new IllegalArgumentException("Both players must play");
         }
     }
