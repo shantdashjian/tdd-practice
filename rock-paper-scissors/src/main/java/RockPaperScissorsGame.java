@@ -3,25 +3,36 @@ import java.util.*;
 public class RockPaperScissorsGame {
     private Map<String, String> map;
 
-
     public String play(String player1, String player2) {
-        map = new HashMap<>();
-        map.put(player1, "Player 1");
-        map.put(player2, "Player 2");
+        storeDataFor(player1, player2);
 
         if (its("rock", "scissors")) {
-            return playerWhoPlayed("rock") + " won!";
+            return theWinnerIsThePlayerWhoPlayed("rock");
         }
 
         if (its("paper", "rock")) {
-            return playerWhoPlayed("paper") + " won!";
+            return theWinnerIsThePlayerWhoPlayed("paper");
         }
 
         if (its("scissors", "paper")) {
-            return playerWhoPlayed("scissors") + " won!";
+            return theWinnerIsThePlayerWhoPlayed("scissors");
         }
 
+        return bothPlayersPlayedTheSameHand();
+    }
+
+    private String bothPlayersPlayedTheSameHand() {
         return "Draw!";
+    }
+
+    private void storeDataFor(String player1, String player2) {
+        map = new HashMap<>();
+        map.put(player1, "Player 1");
+        map.put(player2, "Player 2");
+    }
+
+    private String theWinnerIsThePlayerWhoPlayed(String item) {
+        return playerWhoPlayed(item) + " won!";
     }
 
     private String playerWhoPlayed(String item) {
