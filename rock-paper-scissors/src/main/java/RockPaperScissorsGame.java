@@ -4,10 +4,7 @@ public class RockPaperScissorsGame {
     private Map<String, String> map;
 
     public String play(String player1, String player2) {
-        if (player1.equals("") || player2.equals("")) {
-            throw new IllegalArgumentException("Both players must play");
-        }
-
+        checkBothPlayersPlayed(player1, player2);
         storeDataFor(player1, player2);
 
         if (its("rock", "scissors")) {
@@ -23,6 +20,12 @@ public class RockPaperScissorsGame {
         }
 
         return bothPlayersPlayedTheSameHand();
+    }
+
+    private void checkBothPlayersPlayed(String player1, String player2) {
+        if (player1.equals("") || player2.equals("")) {
+            throw new IllegalArgumentException("Both players must play");
+        }
     }
 
     private String bothPlayersPlayedTheSameHand() {
