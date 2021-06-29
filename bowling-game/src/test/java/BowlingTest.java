@@ -24,4 +24,12 @@ public class BowlingTest {
         }
         assertEquals(0, game.score());
     }
+
+    @Test
+    void roll_all_ones() {
+        for (int i = 0; i < 20; i++) {
+            game.roll(1);
+        }
+        assertEquals(20, game.score());
+    }
 }
