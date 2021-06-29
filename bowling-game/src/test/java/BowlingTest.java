@@ -6,6 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BowlingTest {
 
     private static Game game;
+    private void rollMany(int n, int pins) {
+        for (int i = 0; i < n; i++) {
+            game.roll(pins);
+        }
+    }
 
     @BeforeAll
     static void setup() {
@@ -19,17 +24,14 @@ public class BowlingTest {
 
     @Test
     void roll_gutter_game() {
-        for (int i = 0; i < 20; i++) {
-            game.roll(0);
-        }
+        rollMany(20, 0);
         assertEquals(0, game.score());
     }
 
+
     @Test
     void roll_all_ones() {
-        for (int i = 0; i < 20; i++) {
-            game.roll(1);
-        }
+        rollMany(20, 1);
         assertEquals(20, game.score());
     }
 }
