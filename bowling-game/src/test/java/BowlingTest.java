@@ -1,19 +1,19 @@
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BowlingTest {
 
-    private static Game game;
+    private Game game;
     private void rollMany(int n, int pins) {
         for (int i = 0; i < n; i++) {
             game.roll(pins);
         }
     }
 
-    @BeforeAll
-    static void setup() {
+    @BeforeEach
+    void setup() {
         game = new Game();
     }
 
@@ -23,10 +23,18 @@ public class BowlingTest {
         assertEquals(0, game.score());
     }
 
-
     @Test
     void roll_all_ones() {
         rollMany(20, 1);
         assertEquals(20, game.score());
+    }
+
+    @Test
+    void roll_one_spare_followed_by_3_then_ones() {
+        game.roll(5);
+        game.roll(5); //spare
+        game.roll(3);
+        rollMany(17, 1);
+        assertEquals(5 + 5 + 3 + 3 + 17, game.score());
     }
 }
