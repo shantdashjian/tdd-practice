@@ -18,11 +18,6 @@ public class BowlingTest {
     }
 
     @Test
-    void can_roll() {
-        game.roll(0);
-    }
-
-    @Test
     void roll_gutter_game() {
         rollMany(20, 0);
         assertEquals(0, game.score());
