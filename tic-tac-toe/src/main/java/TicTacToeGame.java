@@ -1,40 +1,35 @@
 import java.util.List;
 
 public class TicTacToeGame {
+    private int[][] rows = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}};
+    private int[][] columns = {{0, 3, 6}, {1, 4, 7}, {2, 5, 8}};
+    private int[][] diagonals = {{0, 4, 8}, {2, 4, 6}};
 
     public int solveTTT(List<String> board) {
         throwExceptionIfBoardIsFull(board);
 
-        if (thereIsAWinningMoveIn(board,0, 1, 2)) {
-            return getWinningMoveIn(board, 0, 1, 2);
-        }
-        if (thereIsAWinningMoveIn(board, 3, 4, 5)) {
-            return getWinningMoveIn(board, 3, 4, 5);
-        }
-        if (thereIsAWinningMoveIn(board, 6, 7, 8)) {
-            return getWinningMoveIn(board, 6, 7, 8);
+        for (int[] row : rows) {
+            if (thereIsAWinningMoveIn(board, row)) {
+                return getWinningMoveIn(board, row);
+            }
         }
 
-        if (thereIsAWinningMoveIn(board, 0, 3, 6)) {
-            return getWinningMoveIn(board, 0, 3, 6);
+        for (int[] column : columns) {
+            if (thereIsAWinningMoveIn(board, column)) {
+                return getWinningMoveIn(board, column);
+            }
         }
 
-        if (thereIsAWinningMoveIn(board, 1, 4, 7)) {
-            return getWinningMoveIn(board, 1, 4, 7);
+        for (int[] diagonal : diagonals) {
+            if (thereIsAWinningMoveIn(board, diagonal)) {
+                return getWinningMoveIn(board, diagonal);
+            }
         }
 
-        if (thereIsAWinningMoveIn(board, 2, 5, 8)) {
-            return getWinningMoveIn(board, 2, 5, 8);
-        }
+        return firstAvailableMove(board);
+    }
 
-        if (thereIsAWinningMoveIn(board, 0, 4, 8)) {
-            return getWinningMoveIn(board, 0, 4, 8);
-        }
-
-        if (thereIsAWinningMoveIn(board, 2, 4, 6)) {
-            return getWinningMoveIn(board, 2, 4, 6);
-        }
-
+    private int firstAvailableMove(List<String> board) {
         int index = 0;
         while (!board.get(index).equals("")) {
             index++;
@@ -51,19 +46,22 @@ public class TicTacToeGame {
         }
     }
 
-    private int getWinningMoveIn(List<String> board, int index0, int index1, int index2) {
-        if (board.get(index0).equals("")) {
-            return index0;
-        } else if (board.get(index1).equals("")) {
-            return index1;
+    private int getWinningMoveIn(List<String> board, int[] location) {
+        if (board.get(location[0]).equals("")) {
+            return location[0];
+        } else if (board.get(location[1]).equals("")) {
+            return location[1];
         } else {
-            return index2;
+            return location[2];
         }
     }
 
-    private boolean thereIsAWinningMoveIn(List<String> board, int index0, int index1, int index2) {
-        return (board.get(index0).equals("X") && board.get(index1).equals("X") && board.get(index2).equals(""))
-                || (board.get(index0).equals("X") && board.get(index1).equals("") && board.get(index2).equals("X"))
-                || (board.get(index0).equals("") && board.get(index1).equals("X") && board.get(index2).equals("X"));
+    private boolean thereIsAWinningMoveIn(List<String> board, int[] location) {
+        return (board.get(location[0]).equals("X") && board.get(location[1]).equals("X") && board.get(location[2]).equals(
+                ""))
+                || (board.get(location[0]).equals("X") && board.get(location[1]).equals("") && board.get(location[2]).equals(
+                        "X"))
+                || (board.get(location[0]).equals("") && board.get(location[1]).equals("X") && board.get(location[2]).equals(
+                        "X"));
     }
 }
