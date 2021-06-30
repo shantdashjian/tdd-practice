@@ -12,6 +12,10 @@ public class BowlingTest {
             game.roll(pins);
         }
     }
+    private void rollSpare() {
+        game.roll(5);
+        game.roll(5);
+    }
 
     @BeforeEach
     void setup() {
@@ -32,10 +36,10 @@ public class BowlingTest {
 
     @Test
     void roll_one_spare_followed_by_3_then_ones() {
-        game.roll(5);
-        game.roll(5); //spare
+        rollSpare();
         game.roll(3);
         rollMany(17, 1);
         assertEquals(5 + 5 + 3 + 3 + 17, game.score());
     }
+
 }
