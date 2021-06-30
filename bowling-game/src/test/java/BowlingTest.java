@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,11 +43,14 @@ public class BowlingTest {
 
     @Test
     void roll_one_strike() {
-        game.roll(10); // strike
+        rollStrike();
         game.roll(3);
         game.roll(4);
         rollMany(16, 0);
         assertEquals(10 + 3 + 4 + 3 + 4, game.score());
     }
 
+    private void rollStrike() {
+        game.roll(10);
+    }
 }

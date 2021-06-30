@@ -21,11 +21,15 @@ public class Game {
                 score += SPARE + nextRoll(firstInFrame);
                 firstInFrame += 2;
             } else {
-                score += rolls[firstInFrame] + rolls[firstInFrame + 1];
+                score += twoRollsInFrame(firstInFrame);
                 firstInFrame += 2;
             }
         }
         return score;
+    }
+
+    private int twoRollsInFrame(int firstInFrame) {
+        return rolls[firstInFrame] + rolls[firstInFrame + 1];
     }
 
     private int nextRoll(int firstInFrame) {
@@ -37,10 +41,10 @@ public class Game {
     }
 
     private boolean isStrike(int roll) {
-        return roll == 10;
+        return roll == STRIKE;
     }
 
     private boolean isSpare(int firstInFrame) {
-        return rolls[firstInFrame] + rolls[firstInFrame + 1] == 10;
+        return twoRollsInFrame(firstInFrame) == SPARE;
     }
 }
