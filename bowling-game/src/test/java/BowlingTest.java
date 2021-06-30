@@ -15,6 +15,9 @@ public class BowlingTest {
         game.roll(5);
         game.roll(5);
     }
+    private void rollStrike() {
+        game.roll(10);
+    }
 
     @BeforeEach
     void setup() {
@@ -50,7 +53,4 @@ public class BowlingTest {
         assertEquals(10 + 3 + 4 + 3 + 4, game.score());
     }
 
-    private void rollStrike() {
-        game.roll(10);
-    }
 }
