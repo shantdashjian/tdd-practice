@@ -13,10 +13,10 @@ public class Game {
         int firstInFrame = 0;
         for (int frame = 0; frame < NUMBER_OF_FRAMES; frame++) {
             if (isStrike(rolls[firstInFrame])) {
-                score += RollType.STRIKE.getValue() + nextTwoRolls(firstInFrame);
+                score += Roll.STRIKE.getValue() + nextTwoRolls(firstInFrame);
                 firstInFrame += 1;
             } else if (isSpare(firstInFrame)) {
-                score += RollType.SPARE.getValue() + nextRoll(firstInFrame);
+                score += Roll.SPARE.getValue() + nextRoll(firstInFrame);
                 firstInFrame += 2;
             } else {
                 score += twoRollsInFrame(firstInFrame);
@@ -39,10 +39,10 @@ public class Game {
     }
 
     private boolean isStrike(int roll) {
-        return roll == RollType.STRIKE.getValue();
+        return roll == Roll.STRIKE.getValue();
     }
 
     private boolean isSpare(int firstInFrame) {
-        return twoRollsInFrame(firstInFrame) == RollType.SPARE.getValue();
+        return twoRollsInFrame(firstInFrame) == Roll.SPARE.getValue();
     }
 }

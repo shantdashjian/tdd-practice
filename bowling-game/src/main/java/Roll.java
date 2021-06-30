@@ -1,9 +1,9 @@
-public enum RollType {
+public enum Roll {
     STRIKE(10), SPARE(10);
 
     private int value;
 
-    RollType(int value) {
+    Roll(int value) {
         this.value = value;
     }
 
