@@ -30,7 +30,6 @@ public class BowlingTest {
         assertEquals(20, game.score());
     }
 
-    @Disabled
     @Test
     void roll_one_spare_followed_by_3_then_ones() {
         game.roll(5);
