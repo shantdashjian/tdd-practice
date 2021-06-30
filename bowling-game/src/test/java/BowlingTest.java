@@ -42,4 +42,13 @@ public class BowlingTest {
         assertEquals(5 + 5 + 3 + 3 + 17, game.score());
     }
 
+    @Test
+    void roll_one_strike() {
+        game.roll(10); // strike
+        game.roll(3);
+        game.roll(4);
+        rollMany(16, 0);
+        assertEquals(10 + 3 + 4 + 3 + 4, game.score());
+    }
+
 }
