@@ -1,3 +1,5 @@
+import lombok.Data;
+
 public class Game {
     public static final int NUMBER_OF_FRAMES = 10;
     public static final int MAX_NUMBER_OF_ROLLS = 21;
@@ -9,22 +11,37 @@ public class Game {
     }
 
     public int score() {
-        int score = 0;
-        int firstInFrame = 0;
+        ScoreAndFirstInFrame scoreAndFirstInFrame = new ScoreAndFirstInFrame(0, 0);
         for (int frame = 0; frame < NUMBER_OF_FRAMES; frame++) {
-            if (isStrike(rolls[firstInFrame])) {
-                score += Roll.STRIKE.getValue() + nextTwoRolls(firstInFrame);
-                firstInFrame += 1;
-            } else if (isSpare(firstInFrame)) {
-                score += Roll.SPARE.getValue() + nextRoll(firstInFrame);
-                firstInFrame += 2;
+            if (isStrike(scoreAndFirstInFrame)) {
+                scoreAndFirstInFrame = getScoreAndFirstInFrameForStrike(scoreAndFirstInFrame);
+            } else if (isSpare(scoreAndFirstInFrame)) {
+                scoreAndFirstInFrame = getScoreAndFirstInFrameForSpare(scoreAndFirstInFrame);
             } else {
-                score += twoRollsInFrame(firstInFrame);
-                firstInFrame += 2;
+                scoreAndFirstInFrame = getScoreAndFirstInFrameForIncompleteFrame(scoreAndFirstInFrame);
             }
         }
-        return score;
+        return scoreAndFirstInFrame.getScore();
     }
+
+    private ScoreAndFirstInFrame getScoreAndFirstInFrameForIncompleteFrame(ScoreAndFirstInFrame scoreAndFirstInFrame) {
+        return new ScoreAndFirstInFrame(
+                scoreAndFirstInFrame.getScore() + twoRollsInFrame(scoreAndFirstInFrame.getFirstInFrame())
+                , scoreAndFirstInFrame.getFirstInFrame() + 2);
+    }
+
+    private ScoreAndFirstInFrame getScoreAndFirstInFrameForSpare(ScoreAndFirstInFrame scoreAndFirstInFrame) {
+        return new ScoreAndFirstInFrame(
+                scoreAndFirstInFrame.getScore() + Roll.SPARE.getValue() + nextRoll(scoreAndFirstInFrame.getFirstInFrame())
+                , scoreAndFirstInFrame.getFirstInFrame() + 2);
+    }
+
+    private ScoreAndFirstInFrame getScoreAndFirstInFrameForStrike(ScoreAndFirstInFrame scoreAndFirstInFrame) {
+        return new ScoreAndFirstInFrame(
+                scoreAndFirstInFrame.getScore() + Roll.STRIKE.getValue() + nextTwoRolls(scoreAndFirstInFrame.getFirstInFrame())
+                , scoreAndFirstInFrame.getFirstInFrame() + 1);
+    }
+
 
     private int twoRollsInFrame(int firstInFrame) {
         return rolls[firstInFrame] + rolls[firstInFrame + 1];
@@ -38,11 +55,19 @@ public class Game {
         return rolls[firstInFrame + 1] + nextRoll(firstInFrame);
     }
 
-    private boolean isStrike(int roll) {
-        return roll == Roll.STRIKE.getValue();
+    private boolean isStrike(ScoreAndFirstInFrame scoreAndFirstInFrame) {
+        return rolls[scoreAndFirstInFrame.getFirstInFrame()]
+                == Roll.STRIKE.getValue();
     }
 
-    private boolean isSpare(int firstInFrame) {
-        return twoRollsInFrame(firstInFrame) == Roll.SPARE.getValue();
+    private boolean isSpare(ScoreAndFirstInFrame scoreAndFirstInFrame) {
+        return twoRollsInFrame(scoreAndFirstInFrame.getFirstInFrame())
+                == Roll.SPARE.getValue();
     }
+}
+
+@Data
+class ScoreAndFirstInFrame {
+    private final int score;
+    private final int firstInFrame;
 }
