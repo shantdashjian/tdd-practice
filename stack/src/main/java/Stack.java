@@ -16,7 +16,10 @@ public class Stack {
         return list.size();
     }
 
-    public Object pop() {
+    public Object pop() throws Exception{
+        if (list.isEmpty()) {
+            throw new Exception("Stack is empty!");
+        }
         return list.remove(list.size() - 1);
     }
 

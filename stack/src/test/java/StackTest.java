@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StackTest {
     private Stack stack;
@@ -24,7 +25,7 @@ public class StackTest {
     }
 
     @Test
-    void return_item_when_pushing_and_popping() {
+    void return_item_when_pushing_and_popping() throws Exception {
         Object itemPushed = "Tim";
         stack.push(itemPushed);
 
@@ -42,4 +43,12 @@ public class StackTest {
         assertThat(stack.peek()).isEqualTo(itemPushed);
         assertThat(stack.getSize()).isEqualTo(1);
     }
+
+    @Test
+    void throw_exception_when_trying_to_pop_from_empty_stack() {
+        assertThatThrownBy(() -> stack.pop())
+                .hasMessage("Stack is empty!");
+    }
 }
+
+
