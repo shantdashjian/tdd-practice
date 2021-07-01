@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class QueueTest {
 
@@ -22,5 +23,11 @@ public class QueueTest {
         queue.enqueue(1);
 
         assertThat(queue.getSize()).isEqualTo(1);
+    }
+
+    @Test
+    void throw_exception_when_trying_to_dequeue_from_empty_queue() {
+        assertThatThrownBy(() -> queue.dequeue())
+                .hasMessage("Queue is empty!");
     }
 }
