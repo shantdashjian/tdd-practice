@@ -1,7 +1,9 @@
 public class Queue {
     private int size;
+    private Object itemEnqueued;
 
     public void enqueue(Object item) {
+        itemEnqueued = item;
         size++;
     }
 
@@ -9,7 +11,10 @@ public class Queue {
         return size;
     }
 
-    public void dequeue() throws Exception {
-        throw new Exception("Queue is empty!");
+    public Object dequeue() throws Exception {
+        if (size == 0) {
+            throw new Exception("Queue is empty!");
+        }
+        return itemEnqueued;
     }
 }

@@ -30,4 +30,14 @@ public class QueueTest {
         assertThatThrownBy(() -> queue.dequeue())
                 .hasMessage("Queue is empty!");
     }
+
+    @Test
+    void return_item_enqueued_when_enqueing_and_dequeueing_item() throws Exception {
+        Object itemEnqueued = 1;
+        queue.enqueue(itemEnqueued);
+
+        Object itemDequeued = queue.dequeue();
+
+        assertThat(itemDequeued).isEqualTo(itemEnqueued);
+    }
 }
