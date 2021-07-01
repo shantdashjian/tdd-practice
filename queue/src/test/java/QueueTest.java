@@ -40,4 +40,16 @@ public class QueueTest {
 
         assertThat(itemDequeued).isEqualTo(itemEnqueued);
     }
+
+    @Test
+    void return_first_item_enqueued_when_enqueing_two_items_and_dequeueing_item() throws Exception {
+        Object firstItemEnqueued = 1;
+        queue.enqueue(firstItemEnqueued);
+        Object secondItemEnqueued = 2;
+        queue.enqueue(secondItemEnqueued);
+
+        Object itemDequeued = queue.dequeue();
+
+        assertThat(itemDequeued).isEqualTo(firstItemEnqueued);
+    }
 }

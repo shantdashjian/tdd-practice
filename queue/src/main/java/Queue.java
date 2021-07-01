@@ -1,20 +1,29 @@
-public class Queue {
-    private int size;
-    private Object itemEnqueued;
+import java.util.ArrayList;
+import java.util.List;
 
-    public void enqueue(Object item) {
-        itemEnqueued = item;
-        size++;
+public class Queue {
+    private List list;
+
+    public Queue() {
+        list = new ArrayList();
     }
 
     public int getSize() {
-        return size;
+        return list.size();
+    }
+
+    public void enqueue(Object item) {
+        list.add(item);
     }
 
     public Object dequeue() throws Exception {
-        if (size == 0) {
+        throwExceptionIfQueueIsEmpty();
+        return list.remove(0);
+    }
+
+    private void throwExceptionIfQueueIsEmpty() throws Exception {
+        if (list.size() == 0) {
             throw new Exception("Queue is empty!");
         }
-        return itemEnqueued;
     }
 }
