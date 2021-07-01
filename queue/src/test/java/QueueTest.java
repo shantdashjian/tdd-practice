@@ -51,5 +51,7 @@ public class QueueTest {
         Object itemDequeued = queue.dequeue();
 
         assertThat(itemDequeued).isEqualTo(firstItemEnqueued);
+        assertThat(queue.getSize()).isEqualTo(1);
+
     }
 }
