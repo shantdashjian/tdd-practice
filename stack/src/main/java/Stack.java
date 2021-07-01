@@ -17,13 +17,18 @@ public class Stack {
     }
 
     public Object pop() throws Exception{
-        if (list.isEmpty()) {
-            throw new Exception("Stack is empty!");
-        }
+        throwExceptionIfStackIsEmpty();
         return list.remove(list.size() - 1);
     }
 
-    public Object peek() {
+    public Object peek() throws Exception {
+        throwExceptionIfStackIsEmpty();
         return list.get(list.size() - 1);
+    }
+
+    private void throwExceptionIfStackIsEmpty() throws Exception {
+        if (list.isEmpty()) {
+            throw new Exception("Stack is empty!");
+        }
     }
 }

@@ -36,17 +36,25 @@ public class StackTest {
     }
 
     @Test
-    void return_last_item_pushed_when_peeking() {
+    void return_last_item_pushed_when_peeking() throws Exception {
         Object itemPushed = "Tim" + Math.random();
         stack.push(itemPushed);
 
-        assertThat(stack.peek()).isEqualTo(itemPushed);
+        Object itemPeeked = stack.peek();
+
+        assertThat(itemPeeked).isEqualTo(itemPushed);
         assertThat(stack.getSize()).isEqualTo(1);
     }
 
     @Test
     void throw_exception_when_trying_to_pop_from_empty_stack() {
         assertThatThrownBy(() -> stack.pop())
+                .hasMessage("Stack is empty!");
+    }
+
+    @Test
+    void throw_exception_when_trying_to_peek_from_empty_stack() {
+        assertThatThrownBy(() -> stack.peek())
                 .hasMessage("Stack is empty!");
     }
 }
