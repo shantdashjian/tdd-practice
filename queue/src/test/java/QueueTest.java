@@ -18,7 +18,9 @@ public class QueueTest {
     }
 
     @Test
-    void can_enqueue() {
+    void return_size_1_when_enqueueing_one_item() {
         queue.enqueue(1);
+
+        assertThat(queue.getSize()).isEqualTo(1);
     }
 }
