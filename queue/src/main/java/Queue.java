@@ -27,7 +27,8 @@ public class Queue {
         }
     }
 
-    public void peek() throws Exception {
+    public Object peek() throws Exception {
         throwExceptionIfQueueIsEmpty();
+        return list.get(0);
     }
 }

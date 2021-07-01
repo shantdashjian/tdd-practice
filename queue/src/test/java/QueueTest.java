@@ -52,12 +52,22 @@ public class QueueTest {
 
         assertThat(itemDequeued).isEqualTo(firstItemEnqueued);
         assertThat(queue.getSize()).isEqualTo(1);
-
     }
 
     @Test
     void throw_exception_when_trying_to_peek_empty_queue() {
         assertThatThrownBy(() -> queue.peek())
                 .hasMessage("Queue is empty!");
+    }
+
+    @Test
+    void return_item_when_peeking_but_keep_same_size() throws Exception {
+        Object itemEnqueued = 1;
+        queue.enqueue(itemEnqueued);
+
+        Object itemPeeked = queue.peek();
+
+        assertThat(itemPeeked).isEqualTo(itemEnqueued);
+        assertThat(queue.getSize()).isEqualTo(1);
     }
 }
