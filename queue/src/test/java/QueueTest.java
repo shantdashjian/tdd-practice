@@ -54,4 +54,10 @@ public class QueueTest {
         assertThat(queue.getSize()).isEqualTo(1);
 
     }
+
+    @Test
+    void throw_exception_when_trying_to_peek_empty_queue() {
+        assertThatThrownBy(() -> queue.peek())
+                .hasMessage("Queue is empty!");
+    }
 }

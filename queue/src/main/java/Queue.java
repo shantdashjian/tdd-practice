@@ -26,4 +26,8 @@ public class Queue {
             throw new Exception("Queue is empty!");
         }
     }
+
+    public void peek() throws Exception {
+        throwExceptionIfQueueIsEmpty();
+    }
 }
