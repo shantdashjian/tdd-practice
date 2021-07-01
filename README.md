@@ -8,4 +8,5 @@ A repository of problems solved using TDD, with both JUnit 5 and AssertJ.
 4. [Prime Factors](https://www.codewars.com/kata/542f3d5fd002f86efc00081a)
 5. [Bowling Game](https://en.wikipedia.org/wiki/Ten-pin_bowling#Scoring)
 6. [Stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
+7. [Queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
 
