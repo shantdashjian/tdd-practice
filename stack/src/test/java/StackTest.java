@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class StackTest {
-
     private Stack stack;
 
     @BeforeEach
@@ -22,5 +21,14 @@ public class StackTest {
         stack.push("Tim");
 
         assertThat(stack.getSize()).isEqualTo(1);
+    }
+
+    @Test
+    void return_item_when_pushing_and_popping() {
+        Object itemPushed = "Tim";
+        stack.push(itemPushed);
+        Object itemPopped = stack.pop();
+
+        assertThat(itemPopped).isEqualTo(itemPushed);
     }
 }

@@ -1,11 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Stack {
-    int size;
+    private List list;
+
+    public Stack() {
+        list = new ArrayList();
+    }
 
     public void push(Object item) {
-        size++;
+        list.add(item);
     }
 
     public int getSize() {
-        return size;
+        return list.size();
+    }
+
+    public Object pop() {
+        return list.get(list.size() - 1);
     }
 }
