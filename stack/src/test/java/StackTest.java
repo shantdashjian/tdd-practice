@@ -27,8 +27,19 @@ public class StackTest {
     void return_item_when_pushing_and_popping() {
         Object itemPushed = "Tim";
         stack.push(itemPushed);
+
         Object itemPopped = stack.pop();
 
         assertThat(itemPopped).isEqualTo(itemPushed);
+        assertThat(stack.getSize()).isEqualTo(0);
+    }
+
+    @Test
+    void return_last_item_pushed_when_peeking() {
+        Object itemPushed = "Tim" + Math.random();
+        stack.push(itemPushed);
+
+        assertThat(stack.peek()).isEqualTo(itemPushed);
+        assertThat(stack.getSize()).isEqualTo(1);
     }
 }

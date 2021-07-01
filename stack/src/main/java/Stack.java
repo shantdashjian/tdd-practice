@@ -17,6 +17,10 @@ public class Stack {
     }
 
     public Object pop() {
+        return list.remove(list.size() - 1);
+    }
+
+    public Object peek() {
         return list.get(list.size() - 1);
     }
 }
