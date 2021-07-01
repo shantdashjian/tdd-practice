@@ -18,7 +18,9 @@ public class StackTest {
     }
 
     @Test
-    void can_push() {
+    void return_size_1_when_pushing_1_item() {
         stack.push("Tim");
+
+        assertThat(stack.getSize()).isEqualTo(1);
     }
 }
