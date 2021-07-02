@@ -89,4 +89,21 @@ public class StringSetTest {
         assertThat(unionSet.contains("Tim")).isTrue();
         assertThat(unionSet.contains("Brown")).isTrue();
     }
+
+    @Test
+    void return_intersection_of_two_sets() {
+        StringSet set1 = new StringSet();
+        set1.add("Tim");
+        set1.add("Kelly");
+        StringSet set2 = new StringSet();
+        set2.add("Brown");
+        set2.add("Kelly");
+
+        StringSet intersectionSet = set1.intersect(set2);
+
+        assertThat(intersectionSet.getCount()).isEqualTo(1);
+        assertThat(intersectionSet.contains("Kelly")).isTrue();
+        assertThat(intersectionSet.contains("Tim")).isFalse();
+        assertThat(intersectionSet.contains("Brown")).isFalse();
+    }
 }

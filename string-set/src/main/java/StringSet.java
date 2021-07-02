@@ -30,10 +30,20 @@ public class StringSet {
         return string;
     }
 
-    public StringSet union(StringSet set2) {
+    public StringSet union(StringSet other) {
         StringSet unionSet = new StringSet();
         this.list.forEach(item -> unionSet.add(item));
-        set2.list.forEach(item -> unionSet.add(item));
+        other.list.forEach(item -> unionSet.add(item));
         return unionSet;
+    }
+
+    public StringSet intersect(StringSet other) {
+        StringSet intersectionSet = new StringSet();
+        this.list.forEach(item -> {
+            if (other.contains(item)) {
+                intersectionSet.add(item);
+            }
+        });
+        return intersectionSet;
     }
 }
