@@ -66,4 +66,13 @@ public class StringSetTest {
     void return_exception_when_trying_to_remove_string_not_in_set() {
         assertThrows(InvalidOperationException.class, () -> set.remove("Tim"));
     }
+
+    @Test
+    void return_removed_string_and_reduce_count_when_removing_existing_string() throws InvalidOperationException {
+        String stringAdded = "Tim";
+        set.add(stringAdded);
+
+        assertThat(set.remove(stringAdded)).isTrue();
+        assertThat(set.getCount()).isEqualTo(0);
+    }
 }

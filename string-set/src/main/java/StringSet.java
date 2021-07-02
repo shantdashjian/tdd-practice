@@ -22,9 +22,10 @@ public class StringSet {
         return list.contains(string);
     }
 
-    public void remove(String string) throws InvalidOperationException {
+    public boolean remove(String string) throws InvalidOperationException {
         if (!list.contains(string)) {
             throw new InvalidOperationException("String does not exist in set!");
         }
+        return list.remove(string);
     }
 }
