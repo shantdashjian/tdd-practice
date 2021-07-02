@@ -50,4 +50,9 @@ public class StringSet {
     public void clear() {
         while(!list.isEmpty()) list.remove(0);
     }
+
+    public List<String> enumerate() {
+        List<String> copy = new ArrayList<>(list);
+        return copy;
+    }
 }

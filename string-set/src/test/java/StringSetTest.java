@@ -1,22 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
-/* String set
-    Develop a class that represents a string set, supporting set operations:
-        - Number of strings in the set, Count
-        - Add string
-        - Checking if the set contains a specific string
-        - Remove string
-        - Union of two sets
-        - Intersection of two sets.
-        - Clearing the set.
-        Enumerating the set.
-
- */
 public class StringSetTest {
     private StringSet set;
 
@@ -116,5 +105,16 @@ public class StringSetTest {
         set.clear();
 
         assertThat(set.getCount()).isEqualTo(0);
+    }
+
+    @Test
+    void return_all_elements_of_the_set_when_enumerating_the_set() {
+        StringSet set = new StringSet();
+        set.add("Tim");
+        set.add("Kelly");
+
+        List<String> elements = set.enumerate();
+
+        assertThat(elements).containsExactly("Tim", "Kelly");
     }
 }
