@@ -22,10 +22,18 @@ public class StringSet {
         return list.contains(string);
     }
 
-    public boolean remove(String string) throws InvalidOperationException {
+    public String remove(String string) throws InvalidOperationException {
         if (!list.contains(string)) {
             throw new InvalidOperationException("String does not exist in set!");
         }
-        return list.remove(string);
+        list.remove(string);
+        return string;
+    }
+
+    public StringSet union(StringSet set2) {
+        StringSet unionSet = new StringSet();
+        this.list.forEach(item -> unionSet.add(item));
+        set2.list.forEach(item -> unionSet.add(item));
+        return unionSet;
     }
 }

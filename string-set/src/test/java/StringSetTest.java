@@ -7,11 +7,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /* String set
     Develop a class that represents a string set, supporting set operations:
-        Number of strings in the set, Count
-        Add string
-        Checking if the set contains a specific string
-        Remove string
-        Union of two sets
+        - Number of strings in the set, Count
+        - Add string
+        - Checking if the set contains a specific string
+        - Remove string
+        - Union of two sets
         Intersection of two sets.
         Clearing the set.
         Enumerating the set.
@@ -72,7 +72,21 @@ public class StringSetTest {
         String stringAdded = "Tim";
         set.add(stringAdded);
 
-        assertThat(set.remove(stringAdded)).isTrue();
+        assertThat(set.remove(stringAdded)).isEqualTo(stringAdded);
         assertThat(set.getCount()).isEqualTo(0);
+    }
+
+    @Test
+    void return_union_of_two_sets() {
+        StringSet set1 = new StringSet();
+        set1.add("Tim");
+        StringSet set2 = new StringSet();
+        set2.add("Brown");
+
+        StringSet unionSet = set1.union(set2);
+
+        assertThat(unionSet.getCount()).isEqualTo(set1.getCount() + set2.getCount());
+        assertThat(unionSet.contains("Tim")).isTrue();
+        assertThat(unionSet.contains("Brown")).isTrue();
     }
 }
