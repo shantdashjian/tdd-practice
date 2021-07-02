@@ -32,12 +32,13 @@ public class StringSetTest {
     }
 
     @Test
-    void return_count_1_when_adding_string_to_set() {
+    void test_adding_string_to_set() {
         String stringAdded = "Tim";
 
         set.add(stringAdded);
 
         assertThat(set.getCount()).isEqualTo(1);
+        assertThat(set.contains(stringAdded)).isTrue();
     }
 
     @Test
