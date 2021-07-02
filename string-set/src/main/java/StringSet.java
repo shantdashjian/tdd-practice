@@ -46,4 +46,8 @@ public class StringSet {
         });
         return intersectionSet;
     }
+
+    public void clear() {
+        while(!list.isEmpty()) list.remove(0);
+    }
 }

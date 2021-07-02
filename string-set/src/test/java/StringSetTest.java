@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
         - Checking if the set contains a specific string
         - Remove string
         - Union of two sets
-        Intersection of two sets.
-        Clearing the set.
+        - Intersection of two sets.
+        - Clearing the set.
         Enumerating the set.
 
  */
@@ -105,5 +105,16 @@ public class StringSetTest {
         assertThat(intersectionSet.contains("Kelly")).isTrue();
         assertThat(intersectionSet.contains("Tim")).isFalse();
         assertThat(intersectionSet.contains("Brown")).isFalse();
+    }
+
+    @Test
+    void return_count_0_when_clearing_the_set() {
+        StringSet set = new StringSet();
+        set.add("Tim");
+        set.add("Kelly");
+
+        set.clear();
+
+        assertThat(set.getCount()).isEqualTo(0);
     }
 }
