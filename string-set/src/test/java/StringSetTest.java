@@ -41,11 +41,12 @@ public class StringSetTest {
     }
 
     @Test
-    void return_true_when_checking_set_contains_string_added() {
+    void test_contains_string() {
         String stringAdded = "Tim";
 
         set.add(stringAdded);
 
         assertThat(set.contains(stringAdded)).isTrue();
+        assertThat(set.contains("Another string")).isFalse();
     }
 }
