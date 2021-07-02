@@ -9,4 +9,5 @@ A repository of problems solved using TDD, with both JUnit 5 and AssertJ.
 5. [Bowling Game](https://en.wikipedia.org/wiki/Ten-pin_bowling#Scoring)
 6. [Stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
 7. [Queue](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
+8. [String Set](https://sites.google.com/site/tddproblems/all-problems-1/String-set)
 
