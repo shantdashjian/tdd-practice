@@ -1,5 +1,11 @@
 public class StringSet {
+    private int count;
+
     public int getCount() {
-        return 0;
+        return count;
+    }
+
+    public void add(String string) {
+        count++;
     }
 }
