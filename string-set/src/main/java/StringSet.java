@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StringSet {
-    private int count;
     private List<String> list;
 
     public StringSet() {
@@ -10,15 +9,22 @@ public class StringSet {
     }
 
     public int getCount() {
-        return count;
+        return list.size();
     }
 
     public void add(String string) {
-        list.add(string);
-        count++;
+        if (!list.contains(string)) {
+            list.add(string);
+        }
     }
 
     public boolean contains(String string) {
         return list.contains(string);
+    }
+
+    public void remove(String string) throws InvalidOperationException {
+        if (!list.contains(string)) {
+            throw new InvalidOperationException("String does not exist in set!");
+        }
     }
 }
