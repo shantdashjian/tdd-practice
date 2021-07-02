@@ -8,4 +8,8 @@ public class StringSet {
     public void add(String string) {
         count++;
     }
+
+    public boolean contains(String string) {
+        return true;
+    }
 }

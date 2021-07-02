@@ -39,4 +39,13 @@ public class StringSetTest {
 
         assertThat(set.getCount()).isEqualTo(1);
     }
+
+    @Test
+    void return_true_when_checking_set_contains_string_added() {
+        String stringAdded = "Tim";
+
+        set.add(stringAdded);
+
+        assertThat(set.contains(stringAdded)).isTrue();
+    }
 }
