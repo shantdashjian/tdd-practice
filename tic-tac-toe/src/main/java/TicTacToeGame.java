@@ -48,12 +48,19 @@ public class TicTacToeGame {
     }
 
     private boolean thereIsAWinningMoveInOne(List<String> board, int[] location) {
-        return (board.get(location[0]).equals("X") && board.get(location[1]).equals("X") && board.get(location[2]).equals(
-                ""))
-                || (board.get(location[0]).equals("X") && board.get(location[1]).equals("") && board.get(location[2]).equals(
-                        "X"))
-                || (board.get(location[0]).equals("") && board.get(location[1]).equals("X") && board.get(location[2]).equals(
-                        "X"));
+        boolean thereIsAWinningMoveAtFirstSquare =
+                board.get(location[0]).equals("")
+                        && board.get(location[1]).equals("X")
+                        && board.get(location[2]).equals("X");
+        boolean thereIsAWinningMoveAtSecondSquare =
+                board.get(location[0]).equals("X")
+                        && board.get(location[1]).equals("")
+                        && board.get(location[2]).equals("X");
+        boolean thereIsAWinningMoveAtThirdSquare =
+                board.get(location[0]).equals("X")
+                        && board.get(location[1]).equals("X")
+                        && board.get(location[2]).equals("");
+        return thereIsAWinningMoveAtFirstSquare || thereIsAWinningMoveAtSecondSquare || thereIsAWinningMoveAtThirdSquare;
     }
 
     private int getWinningMoveInOne(List<String> board, int[] locations) {
@@ -77,7 +84,7 @@ public class TicTacToeGame {
         if (board.stream()
                 .filter(item -> item != null && !item.isEmpty())
                 .count()
-                 == 9) {
+                == 9) {
             throw new IllegalArgumentException("Board is full!!");
         }
     }
