@@ -6,7 +6,8 @@ public class RockPaperScissorsGame {
         }
 
         if ((player1.toLowerCase().equals("paper") && player2.toLowerCase().equals("scissors"))
-                || (player1.toLowerCase().equals("rock") && player2.toLowerCase().equals("paper"))) {
+                || (player1.toLowerCase().equals("rock") && player2.toLowerCase().equals("paper"))
+                || (player1.toLowerCase().equals("scissors") && player2.toLowerCase().equals("rock"))) {
             return "Player Two Wins!";
         }
 

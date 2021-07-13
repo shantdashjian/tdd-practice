@@ -1,9 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -18,30 +16,17 @@ class RockPaperScissorsGameTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"paper, rock", "Paper, ROCK", "PAPER, ROCK"})
-    void return_player_one_wins_when_p1_plays_paper_and_p2_plays_rock__with_different_char_cases(String player1, String player2) {
-        String expectedResult = "Player One Wins!";
-
-        String actualResult = game.play(player1, player2);
-
-        assertThat(actualResult).isEqualTo(expectedResult);
-    }
-
-    @ParameterizedTest
-    @CsvSource({"paper, scissors", "Paper, Scissors", "PAPER, SCISSORS"})
-    void return_player_two_wins_when_p1_plays_paper_and_p2_plays_scissors_with_different_char_cases(String player1, String player2) {
-        String expectedResult = "Player Two Wins!";
-
-        String actualResult = game.play(player1, player2);
-
-        assertThat(actualResult).isEqualTo(expectedResult);
-    }
-
-    @ParameterizedTest
-    @CsvSource({"rock, Paper", "Rock, paper", "ROCK, PAPER"})
-    void return_player_two_wins_when_p1_plays_rock_and_p2_plays_paper_with_different_char_cases(String player1, String player2) {
-        String expectedResult = "Player Two Wins!";
-
+    @CsvSource(delimiter = ':',
+            value = {"paper:Rock:Player One Wins!"
+                    , "scissors:paper:Player One Wins!"
+                    , "Rock:scissors:Player One Wins!"
+                    , "ROCK:paper:Player Two Wins!"
+                    , "paper:scissors:Player Two Wins!"
+                    , "scissors:Rock:Player Two Wins!"
+                    , "rock:ROCK:Draw!"
+                    , "Paper:paper:Draw!"
+                    , "Scissors:scissors:Draw!"})
+    void return_result_given_players_one_and_two_play(String player1, String player2, String expectedResult) {
         String actualResult = game.play(player1, player2);
 
         assertThat(actualResult).isEqualTo(expectedResult);
@@ -63,15 +48,5 @@ class RockPaperScissorsGameTest {
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> game.play(player1, player2));
         assertThat(exception.getMessage()).isEqualTo("Both players must have a value!");
-    }
-
-    @ParameterizedTest
-    @CsvSource({"rock, rOck", "PAPER, paper", "scissors, Scissors"})
-    void return_draw_when_both_p1_and_p1_are_the_same(String player1, String player2) {
-        String expectedResult = "Draw!";
-
-        String actualResult = game.play(player1, player2);
-
-        assertThat(actualResult).isEqualTo(expectedResult);
     }
 }
