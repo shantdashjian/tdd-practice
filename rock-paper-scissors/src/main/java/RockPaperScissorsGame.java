@@ -9,6 +9,11 @@ public class RockPaperScissorsGame {
                 || (player1.toLowerCase().equals("rock") && player2.toLowerCase().equals("paper"))) {
             return "Player Two Wins!";
         }
+
+        if (player1.equals("rock") && player2.equals("rock")) {
+            return "Draw!";
+        }
+
         return "Player One Wins!";
     }
 }

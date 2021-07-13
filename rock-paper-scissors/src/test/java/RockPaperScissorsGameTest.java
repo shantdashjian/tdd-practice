@@ -64,4 +64,16 @@ class RockPaperScissorsGameTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> game.play(player1, player2));
         assertThat(exception.getMessage()).isEqualTo("Both players must have a value!");
     }
+
+    @Test
+    void return_draw_when_both_p1_and_p1_are_rock() {
+        String player1 = "rock";
+        String player2 = "rock";
+        String expectedResult = "Draw!";
+
+        String actualResult = game.play(player1, player2);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+
+    }
 }
