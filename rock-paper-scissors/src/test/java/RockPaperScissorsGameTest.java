@@ -1,9 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RockPaperScissorsGameTest {
 
@@ -45,5 +47,14 @@ class RockPaperScissorsGameTest {
         String actualResult = game.play(player1, player2);
 
         assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    void throw_exception_when_p1_is_null_or_empty(String player1) {
+        String player2 = "paper";
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> game.play(player1, player2));
+        assertThat(exception.getMessage()).isEqualTo("Player one must have a value!");
     }
 }
