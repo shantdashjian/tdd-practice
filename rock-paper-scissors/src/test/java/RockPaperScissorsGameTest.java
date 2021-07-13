@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.aggregator.ArgumentsAccessor;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
@@ -18,10 +19,10 @@ class RockPaperScissorsGameTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "moves.csv", numLinesToSkip = 1)
-    void return_result_given_players_one_and_two_play(String player1, String player2, String expectedResult) {
-        String actualResult = game.play(player1, player2);
+    void return_result_given_players_one_and_two_play(ArgumentsAccessor data) {
+        String actualResult = game.play(data.getString(0), data.getString(1));
 
-        assertThat(actualResult).isEqualTo(expectedResult);
+        assertThat(actualResult).isEqualTo(data.getString(02));
     }
 
     @ParameterizedTest
