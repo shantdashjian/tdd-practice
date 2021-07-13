@@ -1,0 +1,10 @@
+Player 1, Player 2, Expected Result
+paper,Rock,Player One Wins!
+scissors,paper,Player One Wins!
+Rock,scissors,Player One Wins!
+ROCK,paper,Player Two Wins!
+paper,scissors,Player Two Wins!
+scissors,Rock,Player Two Wins!
+rock,ROCK,Draw!
+Paper,paper,Draw!
+Scissors,scissors,Draw!

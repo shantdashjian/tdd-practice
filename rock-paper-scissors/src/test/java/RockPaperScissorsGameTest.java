@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
@@ -16,16 +17,7 @@ class RockPaperScissorsGameTest {
     }
 
     @ParameterizedTest
-    @CsvSource(delimiter = ':',
-            value = {"paper:Rock:Player One Wins!"
-                    , "scissors:paper:Player One Wins!"
-                    , "Rock:scissors:Player One Wins!"
-                    , "ROCK:paper:Player Two Wins!"
-                    , "paper:scissors:Player Two Wins!"
-                    , "scissors:Rock:Player Two Wins!"
-                    , "rock:ROCK:Draw!"
-                    , "Paper:paper:Draw!"
-                    , "Scissors:scissors:Draw!"})
+    @CsvFileSource(resources = "moves.csv", numLinesToSkip = 1)
     void return_result_given_players_one_and_two_play(String player1, String player2, String expectedResult) {
         String actualResult = game.play(player1, player2);
 
