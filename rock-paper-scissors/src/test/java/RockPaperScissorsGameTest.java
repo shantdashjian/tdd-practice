@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -17,9 +18,8 @@ class RockPaperScissorsGameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"paper", "Paper", "PAPER"})
-    void return_player_one_wins_when_p1_plays_paper_with_different_char_cases_and_p2_plays_rock(String player1) {
-        String player2 = "rock";
+    @CsvSource({"paper, rock", "Paper, ROCK", "PAPER, ROCK"})
+    void return_player_one_wins_when_p1_plays_paper_and_p2_plays_rock__with_different_char_cases(String player1, String player2) {
         String expectedResult = "Player One Wins!";
 
         String actualResult = game.play(player1, player2);
@@ -28,9 +28,8 @@ class RockPaperScissorsGameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"paper", "Paper", "PAPER"})
-    void return_player_two_wins_when_p1_plays_paper_with_different_char_cases_and_p2_plays_scissors(String player1) {
-        String player2 = "scissors";
+    @CsvSource({"paper, scissors", "Paper, Scissors", "PAPER, SCISSORS"})
+    void return_player_two_wins_when_p1_plays_paper_and_p2_plays_scissors_with_different_char_cases(String player1, String player2) {
         String expectedResult = "Player Two Wins!";
 
         String actualResult = game.play(player1, player2);
@@ -39,9 +38,8 @@ class RockPaperScissorsGameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"rock", "Rock", "ROCK"})
-    void return_player_two_wins_when_p1_plays_rock_with_different_char_cases_and_p2_plays_paper(String player1) {
-        String player2 = "paper";
+    @CsvSource({"rock, Paper", "Rock, paper", "ROCK, PAPER"})
+    void return_player_two_wins_when_p1_plays_rock_and_p2_plays_paper_with_different_char_cases(String player1, String player2) {
         String expectedResult = "Player Two Wins!";
 
         String actualResult = game.play(player1, player2);

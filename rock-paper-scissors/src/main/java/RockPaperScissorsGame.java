@@ -5,8 +5,8 @@ public class RockPaperScissorsGame {
             throw new IllegalArgumentException("Both players must have a value!");
         }
 
-        if ((player1.toLowerCase().equals("paper") && player2.equals("scissors"))
-                || (player1.toLowerCase().equals("rock") && player2.equals("paper"))) {
+        if ((player1.toLowerCase().equals("paper") && player2.toLowerCase().equals("scissors"))
+                || (player1.toLowerCase().equals("rock") && player2.toLowerCase().equals("paper"))) {
             return "Player Two Wins!";
         }
         return "Player One Wins!";
