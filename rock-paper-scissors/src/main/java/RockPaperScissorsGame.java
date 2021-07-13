@@ -10,7 +10,7 @@ public class RockPaperScissorsGame {
             return "Player Two Wins!";
         }
 
-        if (player1.equals("rock") && player2.equals("rock")) {
+        if (player1.toLowerCase().equals(player2.toLowerCase())) {
             return "Draw!";
         }
 

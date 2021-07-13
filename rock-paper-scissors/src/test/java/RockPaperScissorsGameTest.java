@@ -65,15 +65,13 @@ class RockPaperScissorsGameTest {
         assertThat(exception.getMessage()).isEqualTo("Both players must have a value!");
     }
 
-    @Test
-    void return_draw_when_both_p1_and_p1_are_rock() {
-        String player1 = "rock";
-        String player2 = "rock";
+    @ParameterizedTest
+    @CsvSource({"rock, rOck", "PAPER, paper", "scissors, Scissors"})
+    void return_draw_when_both_p1_and_p1_are_the_same(String player1, String player2) {
         String expectedResult = "Draw!";
 
         String actualResult = game.play(player1, player2);
 
         assertThat(actualResult).isEqualTo(expectedResult);
-
     }
 }
