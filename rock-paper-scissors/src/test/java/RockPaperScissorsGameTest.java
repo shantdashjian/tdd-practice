@@ -35,4 +35,15 @@ class RockPaperScissorsGameTest {
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"rock", "Rock", "ROCK"})
+    void return_player_two_wins_when_p1_plays_rock_with_different_char_cases_and_p2_plays_paper(String player1) {
+        String player2 = "paper";
+        String expectedResult = "Player Two Wins!";
+
+        String actualResult = game.play(player1, player2);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }
