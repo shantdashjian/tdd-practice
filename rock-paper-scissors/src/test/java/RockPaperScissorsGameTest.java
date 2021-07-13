@@ -55,6 +55,15 @@ class RockPaperScissorsGameTest {
         String player2 = "paper";
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> game.play(player1, player2));
-        assertThat(exception.getMessage()).isEqualTo("Player one must have a value!");
+        assertThat(exception.getMessage()).isEqualTo("Both players must have a value!");
+    }
+
+    @ParameterizedTest
+    @NullAndEmptySource
+    void throw_exception_when_p2_is_null_or_empty(String player2) {
+        String player1 = "paper";
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> game.play(player1, player2));
+        assertThat(exception.getMessage()).isEqualTo("Both players must have a value!");
     }
 }
