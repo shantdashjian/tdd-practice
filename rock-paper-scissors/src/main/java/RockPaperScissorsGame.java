@@ -5,13 +5,13 @@ public class RockPaperScissorsGame {
             throw new IllegalArgumentException("Both players must have a value!");
         }
 
-        if ((player1.toLowerCase().equals("paper") && player2.toLowerCase().equals("scissors"))
-                || (player1.toLowerCase().equals("rock") && player2.toLowerCase().equals("paper"))
-                || (player1.toLowerCase().equals("scissors") && player2.toLowerCase().equals("rock"))) {
+        if ((player1.equalsIgnoreCase("paper") && player2.equalsIgnoreCase("scissors"))
+                || (player1.equalsIgnoreCase("rock") && player2.equalsIgnoreCase("paper"))
+                || (player1.equalsIgnoreCase("scissors") && player2.equalsIgnoreCase("rock"))) {
             return "Player Two Wins!";
         }
 
-        if (player1.toLowerCase().equals(player2.toLowerCase())) {
+        if (player1.equalsIgnoreCase(player2)) {
             return "Draw!";
         }
 
